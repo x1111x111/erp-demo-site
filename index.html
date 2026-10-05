@@ -9,41 +9,33 @@
     <title>进入演示 · 工贸 ERP</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body class="entry-page">
-    <a class="skip-link" href="#entry-main">跳转到演示入口</a>
-    <main class="entry-layout" id="entry-main">
-      <section class="entry-story" aria-labelledby="story-title">
-        <div class="entry-story-top">
+  <body class="demo-login-page">
+    <a class="skip-link" href="#demo-login-content">跳转到演示入口</a>
+    <main class="demo-login-layout" id="demo-login-content">
+      <section class="demo-login-intro" aria-label="系统介绍">
+        <div class="demo-login-brand">
           <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="entry-story-brand"><strong>工贸 ERP</strong><small>业务协同平台</small></span>
+          <strong>工贸 ERP</strong>
         </div>
-        <div class="entry-story-body">
-          <p class="entry-kicker">工贸一体企业 · 界面演示</p>
-          <h1 id="story-title">让采购、生产与交付接成一条线。</h1>
-          <p>从一张销售订单出发，了解物料、工单、库存和财务如何在同一套业务系统里衔接。</p>
-          <ol class="entry-flow" aria-label="演示业务路径">
-            <li><span>销售接单</span><small>记录客户需求与交期</small></li>
-            <li><span>采购备料</span><small>跟踪物料与供应商</small></li>
-            <li><span>生产执行</span><small>查看 BOM 与工单</small></li>
-            <li><span>仓储交付</span><small>核对库存与出库</small></li>
-          </ol>
+        <div class="demo-login-message">
+          <p>业务协同平台</p>
+          <h1><span>让订单、库存与生产</span><span>保持同一节奏。</span></h1>
+          <span>面向工贸一体企业的业务管理工作台</span>
         </div>
-        <p class="entry-story-foot">独立静态版本 · 所有业务数据均为虚构</p>
+        <small>当前为演示与验证环境，尚未开放正式投产。</small>
       </section>
-      <section class="entry-access" aria-labelledby="entry-title">
-        <div class="entry-access-inner">
-          <span class="entry-access-mark">工贸 ERP <span>演示环境</span></span>
-          <p class="entry-access-kicker">欢迎查看</p>
-          <h2 id="entry-title">进入界面演示</h2>
-          <p class="entry-access-lead">浏览工作台、进销存、生产、财务与报表页面，查看虚构的业务样例。</p>
-          <div class="entry-identity" aria-label="演示身份">
-            <span class="entry-identity-avatar" aria-hidden="true">演</span>
-            <div><strong>演示访客</strong><small>只读浏览 · 无需账号和密码</small></div>
+      <section class="demo-login-panel" aria-labelledby="demo-login-title">
+        <div class="demo-login-card">
+          <p class="demo-login-eyebrow">欢迎使用</p>
+          <h2 id="demo-login-title">登录工作台</h2>
+          <p class="demo-login-description">这是公开的静态界面演示，无需输入租户编码或账号。</p>
+          <div class="demo-login-fields" aria-label="演示身份信息，无需填写">
+            <div class="demo-login-field"><span>租户编码</span><div>演示租户</div></div>
+            <div class="demo-login-field"><span>用户名</span><div>演示访客</div></div>
+            <div class="demo-login-field"><span>密码</span><div>无需密码</div></div>
           </div>
-          <a class="entry-button" href="./app.html#/home">进入演示工作台 <span aria-hidden="true">›</span></a>
-          <p class="entry-hint">这不是身份验证。任何拥有链接的人都能直接打开演示页面；请勿在此输入真实账号或密码。</p>
-          <div class="entry-divider"></div>
-          <p class="entry-meta">仅供产品界面体验，不连接正式 ERP，也不保存业务操作。</p>
+          <a class="demo-login-button" href="./app.html#/home">进入演示工作台</a>
+          <p class="demo-login-notice">仅供界面体验，不是真实登录。任何人都能直接打开演示工作台；请勿在此使用真实账号信息。</p>
         </div>
       </section>
     </main>
