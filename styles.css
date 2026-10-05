@@ -262,3 +262,34 @@ td:first-child { color: var(--ink); font-weight: 600; }
   .entry-button { transition: none; }
 }
 
+/* The public demo entrance mirrors the real ERP login layout. */
+.demo-login-page { min-height: 100vh; background: #f5f8f8; }
+.demo-login-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(440px, 48%); min-height: 100vh; }
+.demo-login-intro { display: flex; flex-direction: column; justify-content: space-between; min-width: 0; min-height: 100vh; padding: clamp(35px, 5vw, 72px); color: white; background: #143a49; }
+.demo-login-brand { display: flex; align-items: center; gap: 14px; font-size: 20px; }
+.demo-login-brand strong { font-weight: 700; }
+.demo-login-message > p { margin: 0 0 18px; color: #76c8c0; font-size: 13px; }
+.demo-login-message h1 { margin: 0 0 22px; font-size: clamp(32px, 4vw, 56px); line-height: 1.25; letter-spacing: -.04em; }
+.demo-login-message h1 span { display: block; }
+.demo-login-message > span { color: #bdd3d9; font-size: 16px; }
+.demo-login-intro > small { color: #b4cdd3; font-size: 12px; }
+.demo-login-panel { display: grid; place-items: center; min-width: 0; padding: 24px; }
+.demo-login-card { width: min(100%, 390px); }
+.demo-login-eyebrow { margin: 0 0 7px; color: #087d79; font-size: 13px; font-weight: 700; }
+.demo-login-card h2 { margin: 0; color: #173948; font-size: 30px; letter-spacing: -.03em; }
+.demo-login-description { margin: 14px 0 26px; color: #637783; font-size: 13px; line-height: 1.6; }
+.demo-login-fields { display: grid; gap: 18px; }
+.demo-login-field > span { display: block; margin-bottom: 9px; color: #405766; font-size: 14px; }
+.demo-login-field > div { display: flex; align-items: center; min-height: 33px; padding: 4px 11px; border: 1px solid #d4dce2; border-radius: 4px; color: #667984; background: #fff; font-size: 13px; }
+.demo-login-button { display: grid; place-items: center; min-height: 44px; margin-top: 18px; border-radius: 4px; color: white; background: #087d79; font-size: 14px; text-decoration: none; }
+.demo-login-button:hover { background: #066864; }
+.demo-login-notice { margin: 17px 0 0; color: #637783; font-size: 12px; line-height: 1.65; }
+@media (max-width: 760px) {
+  .demo-login-layout { display: block; }
+  .demo-login-intro { min-height: 230px; padding: 28px 25px; }
+  .demo-login-message > p, .demo-login-intro > small { display: none; }
+  .demo-login-message h1 { margin-bottom: 10px; font-size: 28px; }
+  .demo-login-message > span { font-size: 12px; }
+  .demo-login-panel { padding: 56px 24px 48px; }
+}
+
