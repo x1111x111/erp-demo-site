@@ -10,35 +10,25 @@ const modules = {
         ['PAR-001', '示例客户 · 华东', '客户', '上海', '启用'], ['PAR-002', '示例供应商 · 精工', '供应商', '苏州', '启用'], ['PAR-003', '示例客户 · 华南', '客户', '深圳', '启用'] ] },
       { key: 'warehouses', label: '仓库', columns: ['仓库编码', '仓库名称', '用途', '负责人', '状态'], rows: [
         ['WH-01', '原材料仓', '采购收货／领料', '演示仓管', '启用'], ['WH-02', '成品仓', '完工入库／销售出库', '演示仓管', '启用'] ] },
-      { key: 'purchase-orders', label: '采购订单', columns: ['订单号', '供应商', '下单日期', '金额', '状态'], rows: [
+      { key: 'purchases', label: '采购订单', columns: ['订单号', '供应商', '下单日期', '金额', '状态'], rows: [
         ['PO-DEMO-001', '示例供应商 · 精工', '2026-09-26', '¥ 18,600', '待审核'], ['PO-DEMO-002', '示例供应商 · 包材', '2026-09-24', '¥ 6,450', '已审核'], ['PO-DEMO-003', '示例供应商 · 精工', '2026-09-19', '¥ 12,800', '已完成'] ] },
-      { key: 'sales-orders', label: '销售订单', columns: ['订单号', '客户', '交付日期', '金额', '状态'], rows: [
+      { key: 'sales', label: '销售订单', columns: ['订单号', '客户', '交付日期', '金额', '状态'], rows: [
         ['SO-DEMO-001', '示例客户 · 华东', '2026-10-12', '¥ 42,000', '生产中'], ['SO-DEMO-002', '示例客户 · 华南', '2026-10-08', '¥ 16,800', '待发货'], ['SO-DEMO-003', '示例客户 · 华东', '2026-09-30', '¥ 28,500', '已完成'] ] },
-      { key: 'inventory/balances', label: '库存余额', columns: ['物料编码', '物料名称', '仓库', '现存量', '状态'], rows: [
+      { key: 'balances', label: '库存余额', columns: ['物料编码', '物料名称', '仓库', '现存量', '状态'], rows: [
         ['MAT-1001', '不锈钢板', '原材料仓', '128 张', '正常'], ['MAT-1002', '伺服电机', '原材料仓', '12 台', '低于预警'], ['FG-2001', '智能装配箱', '成品仓', '24 套', '正常'] ] },
-      { key: 'inventory/ledger', label: '库存流水', columns: ['流水号', '类型', '物料', '数量', '日期'], rows: [
+      { key: 'movements', label: '库存流水', columns: ['流水号', '类型', '物料', '数量', '日期'], rows: [
         ['ST-DEMO-001', '采购入库', '不锈钢板', '+ 40 张', '2026-09-28'], ['ST-DEMO-002', '生产领料', '伺服电机', '− 6 台', '2026-09-27'], ['ST-DEMO-003', '销售出库', '智能装配箱', '− 3 套', '2026-09-25'] ] },
-      { key: 'inventory/transfers', label: '库存调拨', columns: ['调拨号', '调出仓', '调入仓', '物料', '数量'], rows: [
-        ['TR-DEMO-001', '原材料仓', '生产备料仓', '不锈钢板', '20 张'] ] },
-      { key: 'inventory/freezes', label: '库存冻结', columns: ['冻结号', '仓库', '物料', '数量', '原因'], rows: [
-        ['FR-DEMO-001', '原材料仓', '伺服电机', '2 台', '质量复检样例'] ] },
     ],
   },
   production: {
     label: '生产管理', title: '从物料清单到生产工单', lead: '展示 BOM、工单与物料需求之间的关系；不产生真实领料或完工入库。',
     metrics: [['有效 BOM', '12', '虚构样例'], ['进行中工单', '8', '虚构样例'], ['待领料工单', '3', '仅展示'], ['预计本周完工', '42 套', '虚构样例']],
     tabs: [
-      { key: 'boms', label: 'BOM 版本', columns: ['BOM 编号', '产品', '版本', '生效日期', '状态'], rows: [
+      { key: 'bom', label: 'BOM 版本', columns: ['BOM 编号', '产品', '版本', '生效日期', '状态'], rows: [
         ['BOM-DEMO-001', '智能装配箱', 'V2.1', '2026-09-01', '有效'], ['BOM-DEMO-002', '轻型控制柜', 'V1.0', '2026-08-15', '有效'], ['BOM-DEMO-003', '智能装配箱', 'V2.0', '2026-06-01', '已停用'] ] },
-      { key: 'work-orders', label: '生产工单', columns: ['工单号', '产品', '计划数量', '计划完工', '状态'], rows: [
+      { key: 'orders', label: '生产工单', columns: ['工单号', '产品', '计划数量', '计划完工', '状态'], rows: [
         ['WO-DEMO-001', '智能装配箱', '30 套', '2026-10-10', '生产中'], ['WO-DEMO-002', '轻型控制柜', '12 台', '2026-10-13', '待领料'], ['WO-DEMO-003', '智能装配箱', '18 套', '2026-10-05', '待审核'] ] },
-      { key: 'material-issues', label: '生产领料', columns: ['领料单号', '工单号', '物料', '数量', '状态'], rows: [
-        ['MI-DEMO-001', 'WO-DEMO-001', '不锈钢板', '40 张', '草稿'], ['MI-DEMO-002', 'WO-DEMO-001', '伺服电机', '6 台', '已记账'] ] },
-      { key: 'material-returns', label: '生产退料', columns: ['退料单号', '原领料单', '物料', '数量', '状态'], rows: [
-        ['MR-DEMO-001', 'MI-DEMO-002', '伺服电机', '1 台', '已记账'] ] },
-      { key: 'finished-receipts', label: '成品入库草稿', columns: ['草稿编号', '工单号', '产品', '数量', '状态'], rows: [
-        ['FR-DEMO-001', 'WO-DEMO-001', '智能装配箱', '6 套', '仅草稿'] ] },
-      { key: 'shortage', label: '工单用料缺口', columns: ['工单号', '所需物料', '需求量', '可用量', '提示'], rows: [
+      { key: 'shortage', label: '物料需求', columns: ['工单号', '所需物料', '需求量', '可用量', '提示'], rows: [
         ['WO-DEMO-001', '不锈钢板', '60 张', '128 张', '充足'], ['WO-DEMO-001', '伺服电机', '30 台', '12 台', '缺口 18 台'], ['WO-DEMO-002', '包装纸箱', '12 个', '76 个', '充足'] ] },
     ],
   },
@@ -46,72 +36,56 @@ const modules = {
     label: '财务管理', title: '业务核对与手工总账', lead: '演示期间、科目和凭证的页面结构；金额不构成财务账簿。',
     metrics: [['演示会计期间', '2026-09', '虚构样例'], ['待复核凭证', '3', '仅展示'], ['已过账凭证', '18', '虚构样例'], ['借贷差额', '¥ 0', '虚构样例']],
     tabs: [
-      { key: 'amounts', label: '业务金额核对', columns: ['业务单号', '往来单位', '业务类型', '金额', '状态'], rows: [
-        ['PO-DEMO-002', '示例供应商 · 包材', '采购收货', '¥ 6,450', '已过账'], ['SO-DEMO-003', '示例客户 · 华东', '销售发货', '¥ 28,500', '已过账'] ] },
-      { key: 'cost', label: '库存成本来源', columns: ['流水号', '业务类型', '物料', '库存成本', '日期'], rows: [
-        ['ST-DEMO-001', '采购收货', '不锈钢板', '¥ 8,600', '2026-09-28'] ] },
-      { key: 'partners', label: '往来单位业务汇总', columns: ['往来单位', '类型', '过账笔数', '业务金额', '状态'], rows: [
-        ['示例客户 · 华东', '客户', '2', '¥ 70,500', '示意记录'] ] },
-      { key: 'checks', label: '来源完整性检查', columns: ['订单号', '来源单据', '库存流水', '业务数量', '结果'], rows: [
-        ['PO-DEMO-002', '收货样例', 'ST-DEMO-001', '40 张', '已匹配'] ] },
-      { key: 'ledger', label: '手工凭证与总账', columns: ['凭证号', '摘要', '期间', '借方合计', '状态'], rows: [
-        ['V-DEMO-018', '采购结算样例', '2026-09', '¥ 18,600', '待复核'], ['V-DEMO-017', '原材料入账样例', '2026-09', '¥ 12,800', '已过账'] ] },
       { key: 'periods', label: '会计期间', columns: ['期间', '开始日期', '结束日期', '凭证数', '状态'], rows: [
         ['2026-09', '2026-09-01', '2026-09-30', '21', '开放'], ['2026-08', '2026-08-01', '2026-08-31', '19', '已关闭'] ] },
       { key: 'accounts', label: '会计科目', columns: ['科目编码', '科目名称', '类别', '级次', '状态'], rows: [
         ['1002', '银行存款', '资产', '一级', '启用'], ['1403', '原材料', '资产', '一级', '启用'], ['2202', '应付账款', '负债', '一级', '启用'], ['6001', '主营业务收入', '损益', '一级', '启用'] ] },
-      { key: 'vouchers', label: '凭证台账', columns: ['凭证号', '摘要', '期间', '借方合计', '状态'], rows: [
+      { key: 'vouchers', label: '手工凭证', columns: ['凭证号', '摘要', '期间', '借方合计', '状态'], rows: [
         ['V-DEMO-018', '采购结算样例', '2026-09', '¥ 18,600', '待复核'], ['V-DEMO-017', '原材料入账样例', '2026-09', '¥ 12,800', '已过账'], ['V-DEMO-016', '银行收款样例', '2026-09', '¥ 28,500', '已过账'] ] },
     ],
   },
   reports: {
-    label: '经营报表', title: '经营执行统计', lead: '按已过账业务动作的笔数展示采购、销售与生产执行；不含收入、利润或应收应付。',
-    metrics: [['销售发货', '31', '虚构笔数'], ['采购收货', '24', '虚构笔数'], ['生产领料', '18', '虚构笔数'], ['未完订单', '7', '虚构快照']],
+    label: '经营报表', title: '经营数据一目了然', lead: '使用固定样例展示采购、销售与生产的统计布局；不读取实时经营数据。',
+    metrics: [['销售额', '¥ 286,400', '虚构样例'], ['采购额', '¥ 194,700', '虚构样例'], ['订单交付率', '91%', '虚构样例'], ['待处理异常', '4', '仅展示']],
     tabs: [
-      { key: 'actions', label: '业务动作', columns: ['业务动作', '笔数', '统计口径'], rows: [
-        ['销售发货', '31', '已过账业务记录'], ['采购收货', '24', '已过账业务记录'], ['生产领料', '18', '已记账领料记录'] ] },
-      { key: 'backlog', label: '当前待执行', columns: ['业务项目', '数量', '统计口径'], rows: [
-        ['未完采购订单', '3', '当前快照'], ['未完销售订单', '4', '当前快照'], ['进行中工单', '8', '当前快照'] ] },
-      { key: 'stock', label: '当前库存覆盖', columns: ['指标', '数量', '统计口径'], rows: [
-        ['有库存物料种类', '86', '当前快照'], ['有库存仓库', '2', '当前快照'] ] },
+      { key: 'sales', label: '销售分析', columns: ['月份', '订单数', '销售额', '已交付', '交付率'], rows: [
+        ['2026-09', '34', '¥ 286,400', '31', '91%'], ['2026-08', '29', '¥ 248,100', '27', '93%'], ['2026-07', '25', '¥ 221,800', '23', '92%'] ] },
+      { key: 'purchase', label: '采购分析', columns: ['月份', '订单数', '采购额', '已到货', '到货率'], rows: [
+        ['2026-09', '28', '¥ 194,700', '24', '86%'], ['2026-08', '26', '¥ 182,900', '25', '96%'] ] },
+      { key: 'production', label: '生产分析', columns: ['产品', '计划数量', '已完工', '在制', '完成率'], rows: [
+        ['智能装配箱', '80 套', '61 套', '19 套', '76%'], ['轻型控制柜', '40 台', '31 台', '9 台', '78%'] ] },
     ],
   },
   approvals: {
     label: '审批与流程', title: '审批任务与流程记录', lead: '查看样例任务状态和审批链；按钮不会触发真实审批。',
     metrics: [['待我处理', '5', '虚构样例'], ['本月已办', '23', '虚构样例'], ['平均处理时长', '1.6 天', '虚构样例'], ['异常实例', '1', '仅展示']],
     tabs: [
-      { key: 'instances', label: '流程实例台账', columns: ['实例编号', '关联单据', '流程', '当前环节', '状态'], rows: [
+      { key: 'tasks', label: '待办任务', columns: ['任务编号', '业务类型', '申请人', '发起日期', '状态'], rows: [
+        ['AP-DEMO-001', '采购订单审核', '演示采购员', '2026-09-28', '待处理'], ['AP-DEMO-002', '生产工单审核', '演示计划员', '2026-09-27', '待处理'], ['AP-DEMO-003', '手工凭证复核', '演示会计', '2026-09-26', '待处理'] ] },
+      { key: 'instances', label: '流程记录', columns: ['实例编号', '关联单据', '流程', '当前环节', '状态'], rows: [
         ['WF-DEMO-001', 'PO-DEMO-001', '采购审核', '部门负责人', '进行中'], ['WF-DEMO-002', 'WO-DEMO-001', '工单审核', '生产主管', '已完成'], ['WF-DEMO-003', 'V-DEMO-018', '凭证复核', '财务主管', '进行中'] ] },
-      { key: 'definitions', label: '流程定义', columns: ['定义编码', '业务类型', '版本', '适用范围', '状态'], rows: [
-        ['WF-PURCHASE', '采购审核', 'V1', '当前公司', '已发布'], ['WF-WORK', '工单审核', 'V1', '当前公司', '草稿'] ] },
     ],
   },
   integrations: {
     label: '系统集成', title: '外部系统连接概览', lead: '展示集成台账的界面；这里不会向 OA、飞书或对象存储发送请求。',
     metrics: [['计划连接', '4', '虚构样例'], ['已配置', '2', '虚构样例'], ['待验证', '2', '仅展示'], ['最近同步', '—', '未连接']],
     tabs: [
-      { key: 'status', label: '连接与接入状态', columns: ['连接项', '用途', '环境', '状态', '说明'], rows: [
-        ['流程引擎', '审批流程', '演示', '未检测', '静态页面不连接后端'], ['对象存储', '附件服务', '演示', '未检测', '静态页面不连接后端'], ['企业 OA', '单点登录', '演示', '未接入', '正式版尚未开发'], ['飞书', '业务提醒', '演示', '未接入', '正式版尚未开发'] ] },
+      { key: 'connectors', label: '连接器', columns: ['连接器', '用途', '目标系统', '环境', '状态'], rows: [
+        ['INT-DEMO-001', '审批任务通知', '企业 OA', '演示', '待验证'], ['INT-DEMO-002', '业务提醒', '飞书', '演示', '未连接'], ['INT-DEMO-003', '附件存储', '对象存储', '演示', '未连接'] ] },
+      { key: 'logs', label: '同步记录', columns: ['记录号', '连接器', '事件', '时间', '结果'], rows: [
+        ['LOG-DEMO-001', '企业 OA', '采购审核通知样例', '2026-09-27 09:30', '示意记录'], ['LOG-DEMO-002', '对象存储', '附件上传样例', '2026-09-26 14:15', '示意记录'] ] },
     ],
   },
   platform: {
     label: '组织与账号', title: '组织、用户与权限', lead: '浏览租户组织结构、角色与权限配置的示意页面。',
     metrics: [['演示公司', '1', '虚构样例'], ['部门', '5', '虚构样例'], ['演示账号', '12', '未启用登录'], ['角色', '6', '虚构样例']],
     tabs: [
-      { key: 'companies', label: '公司', columns: ['组织编号', '名称', '上级组织', '类型', '状态'], rows: [
-        ['ORG-001', '青禾机电（虚构）', '—', '公司', '启用'] ] },
-      { key: 'departments', label: '部门', columns: ['部门编号', '名称', '所属公司', '负责人', '状态'], rows: [
-        ['DEP-001', '采购部', '青禾机电（虚构）', '演示采购主管', '启用'], ['DEP-002', '生产部', '青禾机电（虚构）', '演示生产主管', '启用'] ] },
-      { key: 'positions', label: '岗位', columns: ['岗位编号', '名称', '所属部门', '岗位类型', '状态'], rows: [
-        ['POS-001', '采购专员', '采购部', '业务', '启用'], ['POS-002', '仓库管理员', '仓储部', '业务', '启用'] ] },
-      { key: 'employees', label: '员工', columns: ['员工编号', '姓名', '所属部门', '岗位', '状态'], rows: [
-        ['EMP-001', '演示采购员', '采购部', '采购专员', '在职'], ['EMP-002', '演示仓管员', '仓储部', '仓库管理员', '在职'] ] },
+      { key: 'organization', label: '组织结构', columns: ['组织编号', '名称', '上级组织', '类型', '状态'], rows: [
+        ['ORG-001', '青禾机电（虚构）', '—', '公司', '启用'], ['ORG-002', '采购部', '青禾机电（虚构）', '部门', '启用'], ['ORG-003', '生产部', '青禾机电（虚构）', '部门', '启用'], ['ORG-004', '财务部', '青禾机电（虚构）', '部门', '启用'] ] },
       { key: 'users', label: '用户账号', columns: ['账号', '显示名称', '部门', '角色', '状态'], rows: [
         ['demo.purchase', '演示采购员', '采购部', '采购专员', '示意账号'], ['demo.planner', '演示计划员', '生产部', '生产计划', '示意账号'], ['demo.finance', '演示会计', '财务部', '会计', '示意账号'] ] },
       { key: 'roles', label: '角色权限', columns: ['角色编码', '角色名称', '业务范围', '成员数', '状态'], rows: [
         ['ROLE-01', '采购专员', '采购订单／供应商', '3', '启用'], ['ROLE-02', '仓库管理员', '收发货／库存', '2', '启用'], ['ROLE-03', '会计', '凭证／报表', '2', '启用'] ] },
-      { key: 'messages/my', label: '我的消息', columns: ['消息编号', '类型', '摘要', '时间', '状态'], rows: [
-        ['MSG-DEMO-001', '业务提醒', '采购订单待审核样例', '2026-09-28 10:30', '未读'] ] },
     ],
   },
 };
@@ -126,7 +100,7 @@ const dialog = document.querySelector('#detail-dialog');
 const dialogTitle = document.querySelector('#dialog-title');
 const dialogContent = document.querySelector('#dialog-content');
 const status = document.querySelector('#status');
-const expanded = new Set();
+const expanded = new Set(['trading']);
 
 function node(tag, className, content) {
   const element = document.createElement(tag);
@@ -136,8 +110,7 @@ function node(tag, className, content) {
 }
 function append(parent, ...children) { parent.append(...children); return parent; }
 function route() {
-  const [moduleKey = 'home', ...sectionParts] = (location.hash.replace(/^#\/?/, '') || 'home').split('/');
-  const tabKey = sectionParts.join('/');
+  const [moduleKey = 'home', tabKey] = (location.hash.replace(/^#\/?/, '') || 'home').split('/');
   if (!modules[moduleKey]) return { moduleKey: 'home', tabKey: '' };
   const module = modules[moduleKey];
   return { moduleKey, tabKey: module.tabs.some((tab) => tab.key === tabKey) ? tabKey : module.tabs[0].key };
@@ -150,46 +123,41 @@ function closeMobileNav() {
 }
 function renderNav(activeModule, activeTab) {
   nav.replaceChildren();
-  const descriptions = {
-    home: '总览', trading: '采购 · 销售 · 库存', production: 'BOM · 工单',
-    finance: '业务核对 · 手工总账', reports: '业务统计', approvals: '实例台账 · 定义',
-    integrations: 'OA · 飞书 · 存储', platform: '基础平台',
-  };
-  for (const [key, module] of [['home', { label: '工作台' }], ...Object.entries(modules)]) {
-    const grouped = key === 'trading' || key === 'platform';
-    const link = node('a', `nav-item ${grouped ? 'nav-group-link' : ''} ${activeModule === key && !grouped ? 'active' : ''}`);
-    link.href = key === 'home' ? '#/home' : `#/${key}/${module.tabs[0].key}`;
-    if (activeModule === key && !grouped) link.setAttribute('aria-current', 'page');
-    append(link, node('span', 'nav-indicator'), append(node('span'), node('strong', '', module.label), node('small', '', descriptions[key])));
-    if (grouped) {
-      const group = node('div', 'nav-group');
-      const row = node('div', `nav-group-row ${activeModule === key ? 'active' : ''}`);
-      const toggle = node('button', 'nav-expand');
-      toggle.type = 'button';
-      toggle.setAttribute('aria-label', `${expanded.has(key) ? '收起' : '展开'}${module.label}子菜单`);
-      toggle.setAttribute('aria-expanded', String(expanded.has(key)));
-      toggle.setAttribute('aria-controls', `subnav-${key}`);
-      append(toggle, node('span', 'nav-chevron'));
-      toggle.addEventListener('click', () => { expanded.has(key) ? expanded.delete(key) : expanded.add(key); renderNav(activeModule, activeTab); });
-      append(row, link, toggle); append(group, row);
-      const subnav = node('div', 'nav-submenu'); subnav.id = `subnav-${key}`; subnav.hidden = !expanded.has(key);
-      for (const tab of module.tabs) {
-        const sublink = node('a', `nav-subitem ${activeModule === key && activeTab === tab.key ? 'active' : ''}`, tab.label);
-        sublink.href = `#/${key}/${tab.key}`;
-        if (activeModule === key && activeTab === tab.key) sublink.setAttribute('aria-current', 'page');
-        append(subnav, sublink);
-      }
-      append(group, subnav); append(nav, group);
-    } else append(nav, link);
+  const homeRow = node('div', `nav-row ${activeModule === 'home' ? 'active' : ''}`);
+  const homeLink = node('a', 'nav-link');
+  homeLink.href = '#/home';
+  if (activeModule === 'home') homeLink.setAttribute('aria-current', 'page');
+  append(homeLink, node('span', 'nav-icon'), node('span', '', '工作台'));
+  append(homeRow, homeLink); append(nav, homeRow);
+  for (const [key, module] of Object.entries(modules)) {
+    const row = node('div', `nav-row ${activeModule === key ? 'active' : ''}`);
+    const link = node('a', 'nav-link');
+    link.href = `#/${key}/${module.tabs[0].key}`;
+    append(link, node('span', 'nav-icon'), node('span', '', module.label));
+    const toggle = node('button', 'nav-expand');
+    toggle.type = 'button';
+    toggle.setAttribute('aria-label', `${expanded.has(key) ? '收起' : '展开'}${module.label}子菜单`);
+    toggle.setAttribute('aria-expanded', String(expanded.has(key)));
+    toggle.setAttribute('aria-controls', `subnav-${key}`);
+    append(toggle, node('span', 'chevron', '›'));
+    toggle.addEventListener('click', () => { expanded.has(key) ? expanded.delete(key) : expanded.add(key); renderNav(activeModule, activeTab); });
+    append(row, link, toggle); append(nav, row);
+    const subnav = node('div', 'subnav'); subnav.id = `subnav-${key}`; subnav.hidden = !expanded.has(key);
+    for (const tab of module.tabs) {
+      const sublink = node('a', activeModule === key && activeTab === tab.key ? 'active' : '', tab.label);
+      sublink.href = `#/${key}/${tab.key}`;
+      if (activeModule === key && activeTab === tab.key) sublink.setAttribute('aria-current', 'page');
+      append(subnav, sublink);
+    }
+    append(nav, subnav);
   }
   nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileNav));
 }
-function pageHeading(kicker, title, lead, badge = '') {
+function pageHeading(kicker, title, lead) {
   const wrap = node('div', 'page-heading');
   const text = node('div');
-  append(text, node('p', 'section-kicker', kicker), node('h1', '', title), node('p', '', lead));
-  append(wrap, text);
-  if (badge) append(wrap, node('span', 'formal-badge', badge));
+  append(text, node('p', 'eyebrow', kicker), node('h1', '', title), node('p', 'page-lead', lead));
+  append(wrap, text, node('span', 'demo-pill', '虚构数据 · 只读演示'));
   return wrap;
 }
 function metrics(items) {
@@ -205,58 +173,45 @@ function sectionHead(title, note) {
   return append(node('div', 'section-head'), node('h2', '', title), node('span', '', note));
 }
 function homeView() {
-  const view = node('div', 'workspace home-view');
-  append(view, pageHeading('业务工作台', '业务从这里开始', '采购、销售、库存与生产，集中查看当前进度。'));
-  const feature = node('section', 'home-feature');
-  const featureMain = node('div', 'feature-main');
-  append(featureMain, node('p', 'feature-label', '当前工作范围'), node('h2', '', '业务流转，一处掌握'), node('p', '', '沿用正式 ERP 的业务页面结构，使用虚构样例浏览模块；这里不会产生正式业务账。'));
-  const actions = node('div', 'feature-actions');
-  const trading = node('a', 'feature-link', '进入进销存'); trading.href = '#/trading/materials';
-  const production = node('a', 'feature-link secondary', '查看生产管理'); production.href = '#/production/boms';
-  append(actions, trading, production); append(featureMain, actions);
-  const featureSide = node('div', 'feature-side');
-  append(featureSide, node('span', '', '当前阶段'), node('strong', '', '演示与验证'), node('p', '', '只读界面样例；正式投产仍需业务验收与后端服务。'));
-  append(feature, featureMain, featureSide); append(view, feature);
-
-  const overview = node('section', 'overview-section');
-  append(overview, sectionHead('业务概况', '当前租户 · 虚构样例'));
-  const strip = node('div', 'metric-strip');
-  [['采购订单', '28'], ['销售订单', '34'], ['生产工单', '8'], ['BOM 版本', '12']].forEach(([label, value]) => {
-    append(strip, append(node('div', 'metric-item'), node('span', '', label), node('strong', '', value), node('small', '', '条样例')));
+  const fragment = document.createDocumentFragment();
+  append(fragment, pageHeading('业务工作台', '从订单到交付，看清每一步', '这是一份可独立分享的界面演示。你可以浏览各模块、搜索样例记录、查看单据详情。'));
+  const hero = node('section', 'hero');
+  const heroMain = node('div', 'hero-main');
+  append(heroMain, node('p', 'hero-kicker', '工贸一体 · 流程概览'), node('h2', '', '一张销售订单，串起采购、生产、仓储与财务。'), node('p', '', '用同一组虚构业务样例，了解系统如何组织日常经营信息。这里不会连接真实业务数据。'));
+  const actions = node('div', 'hero-actions');
+  const trading = node('a', 'primary-link', '查看销售订单'); trading.href = '#/trading/sales';
+  const production = node('a', 'secondary-link', '查看生产工单'); production.href = '#/production/orders';
+  append(actions, trading, production); append(heroMain, actions);
+  const heroSide = node('div', 'hero-side');
+  append(heroSide, append(node('div'), node('span', '', '当前展示'), node('strong', '', '独立静态演示')), node('p', '', '无需登录 · 无需服务器 · 不提交业务数据'));
+  append(hero, heroMain, heroSide); append(fragment, hero);
+  append(fragment, sectionHead('业务概况', '固定样例，不代表实际经营'));
+  append(fragment, metrics([['销售订单', '34', '2026 年 9 月样例'], ['采购订单', '28', '2026 年 9 月样例'], ['生产工单', '8', '进行中样例'], ['待办审批', '5', '流程界面样例']]));
+  append(fragment, sectionHead('一个订单的流转路径', '从销售需求到财务核对'));
+  const flow = node('section', 'flow-card');
+  append(flow, node('h3', '', 'SO-DEMO-001 · 智能装配箱'), node('p', '', '示例客户 · 华东 / 30 套 / 计划于 2026-10-12 交付'));
+  const flowLine = node('div', 'flow-line');
+  [['销售接单', '登记需求与交期'], ['物料采购', '补齐关键原料'], ['生产执行', '按 BOM 安排工单'], ['仓储交付', '查看库存与出库'], ['财务核对', '查看凭证示意']].forEach(([name, note], index) => {
+    append(flowLine, append(node('div', 'flow-step'), node('span', '', `环节 ${index + 1}`), node('strong', '', name), node('small', '', note)));
   });
-  append(overview, strip); append(view, overview);
-
-  const modulesSection = node('section', 'overview-section');
-  append(modulesSection, sectionHead('业务模块', '按工作内容进入'));
-  const grid = node('div', 'module-grid');
-  const homeModules = [
-    ['trading', '采购与销售', '订单、收发货及客户供应商', '可浏览'],
-    ['trading', '库存管理', '库存余额与收发流水', '可浏览', 'inventory/balances'],
-    ['production', '生产管理', 'BOM 版本与生产工单', '界面演示'],
-    ['finance', '财务管理', '业务金额核对与手工总账凭证', '界面演示'],
-    ['reports', '经营报表', '采购、销售和生产单据统计', '界面演示'],
-    ['approvals', '审批与流程', '流程实例台账与定义', '界面演示'],
-    ['integrations', '系统集成', '流程、存储与外部连接进度', '界面演示'],
-    ['platform', '组织与账号', '公司、部门、人员和权限', '可浏览'],
-  ];
-  homeModules.forEach(([key, title, detail, state, section]) => {
-    const link = node('a', 'module-item'); link.href = `#/${key}/${section || modules[key].tabs[0].key}`;
-    const top = node('div', 'module-item-top');
-    append(top, node('h3', '', title), node('span', 'formal-badge muted-badge', state));
-    append(link, top, node('p', '', detail), node('span', 'module-enter', '打开模块 ↗')); append(grid, link);
-  });
-  append(modulesSection, grid); append(view, modulesSection);
-
-  const recent = node('section', 'overview-section recent-section');
-  const recentHead = sectionHead('最近工单', '');
-  const all = node('a', '', '查看全部'); all.href = '#/production/work-orders'; recentHead.lastChild.replaceWith(all);
-  append(recent, recentHead);
-  const list = node('div', 'recent-list');
-  [['WO-DEMO-001', '智能装配箱', '30 套', '生产中'], ['WO-DEMO-002', '轻型控制柜', '12 台', '待领料']].forEach((row) => {
-    append(list, append(node('div', 'recent-row'), node('strong', '', row[0]), node('span', '', row[1]), node('span', '', row[2]), node('span', 'formal-badge', row[3])));
-  });
-  append(recent, list); append(view, recent);
-  return view;
+  append(flow, flowLine); append(fragment, flow);
+  append(fragment, sectionHead('进入业务模块', '每个模块都可浏览样例数据'));
+  const grid = node('div', 'content-grid');
+  const panel = node('section', 'panel');
+  append(panel, node('h2', '', '模块导航'), node('p', 'panel-intro', '选择一个业务领域查看页面结构与样例详情。'));
+  const links = node('div', 'module-links');
+  for (const [key, module] of Object.entries(modules)) {
+    const link = node('a', 'module-link'); link.href = `#/${key}/${module.tabs[0].key}`;
+    append(link, append(node('span'), node('strong', '', module.label), node('small', '', module.lead)), node('b', '', '›'));
+    append(links, link);
+  }
+  append(panel, links);
+  const note = node('aside', 'notice-card');
+  const list = node('ul');
+  ['所有公司、人员、单据和金额均为虚构。', '搜索、切换模块和查看详情可直接体验。', '不提供登录、编辑、审批或过账，避免误认为正式系统。', '正式 ERP 的上线仍需安全和业务验收。'].forEach((item) => append(list, node('li', '', item)));
+  append(note, node('h2', '', '关于这份演示'), node('p', '', '这是从现有 ERP 独立出来的静态展示，不包含后端接口、数据库连接或密钥。'), list);
+  append(grid, panel, note); append(fragment, grid);
+  return fragment;
 }
 function statusClass(value) {
   if (/待|缺口|低于|未连接|异常/.test(value)) return 'pending';
@@ -299,54 +254,38 @@ function renderTable(tab, query, target) {
 }
 function moduleView(moduleKey, tabKey) {
   const module = modules[moduleKey]; const tab = module.tabs.find((item) => item.key === tabKey);
-  const formalCopy = {
-    trading: ['进销存 · 阶段五', '采购、销售与库存', '管理基础资料、订单与库存流转。', '尚未完成验收'],
-    production: ['生产管理 · 阶段六', 'BOM、工单与生产单据', '按已发布 BOM 建立工单，追溯领退料并登记成品入库草稿。', '生产闭环建设中'],
-    finance: ['财务管理 · 主模块', '财务管理', '核对进销存业务来源，并办理单币种手工总账凭证。', '业务自动入账未启用'],
-    reports: ['报表与分析 · 经营执行', '经营报表', '以当前公司的已过账业务动作为主线，观察采购、销售与生产执行。', '单据笔数口径'],
-    approvals: ['审批与流程 · 过程台账', '审批与流程', '核对业务审批实例，管理当前公司使用的流程定义。', '流程示意'],
-    integrations: ['系统集成 · 主模块', '系统集成', '检查已接入依赖的可用性，并区分尚未开发的外部连接。', '连接示意'],
-    platform: ['基础平台', '组织与账号', '维护当前租户的组织资料、账号和角色授权。', '只读演示'],
-  };
-  const [kicker, title, lead, badge] = formalCopy[moduleKey];
-  const view = node('div', 'page-shell');
-  append(view, pageHeading(kicker, title, lead, badge));
-  const content = node('div', 'content');
-  const note = node('p', 'demo-readonly-note', '公开界面演示：以下均为虚构样例。此页不连接正式 ERP，也不执行新增、审批或过账。');
-  append(content, note);
-  if (moduleKey === 'reports') append(content, metrics(module.metrics));
-  const panel = node('section', 'surface-panel demo-surface');
-  const panelHead = node('div', 'demo-panel-head', tab.label);
-  append(panel, panelHead);
-  if (moduleKey === 'trading') append(panel, node('p', 'demo-panel-description', '新订单先保存为草稿，审核通过后才能收发货。这里仅展示字段和虚构记录。'));
-  if (moduleKey === 'platform') append(panel, node('p', 'demo-panel-description', '资料按租户隔离。演示版不提供新增、编辑和授权操作。'));
-  const tabs = node('nav', 'demo-section-tabs'); tabs.setAttribute('aria-label', `${module.label}板块`);
+  const fragment = document.createDocumentFragment();
+  append(fragment, pageHeading(module.label, module.title, module.lead), metrics(module.metrics));
+  append(fragment, sectionHead('业务视图', `${module.tabs.length} 个示意板块`));
+  const tabs = node('nav', 'tab-list'); tabs.setAttribute('aria-label', `${module.label}板块`);
   module.tabs.forEach((item) => {
-    const link = node('a', `demo-section-tab ${item.key === tabKey ? 'selected' : ''}`, item.label);
+    const link = node('a', item.key === tabKey ? 'active' : '', item.label);
     link.href = `#/${moduleKey}/${item.key}`;
     if (item.key === tabKey) link.setAttribute('aria-current', 'page');
     append(tabs, link);
   });
-  if (moduleKey !== 'trading' && moduleKey !== 'platform') append(panel, tabs);
-  const toolbar = node('div', 'demo-table-toolbar');
-  const search = node('label', 'demo-search-label');
+  append(fragment, tabs);
+  const grid = node('div', 'content-grid');
+  const panel = node('section', 'panel');
+  const toolbar = node('div', 'table-toolbar');
+  const search = node('label', 'search-label');
   append(search, node('span', '', `搜索${tab.label}样例`));
   const input = node('input'); input.type = 'search'; input.placeholder = '输入编号或名称'; input.autocomplete = 'off';
-  append(search, input); append(toolbar, search);
-  const refresh = node('button', 'demo-refresh', '刷新'); refresh.type = 'button';
-  refresh.addEventListener('click', () => { input.value = ''; renderTable(tab, '', tableTarget); });
-  append(toolbar, refresh); append(panel, toolbar);
+  append(search, input); append(toolbar, node('h2', '', tab.label), search); append(panel, toolbar);
   const tableTarget = node('div'); append(panel, tableTarget);
   renderTable(tab, '', tableTarget);
   input.addEventListener('input', () => renderTable(tab, input.value.trim(), tableTarget));
-  append(content, panel); append(view, content);
-  return view;
+  const aside = node('aside', 'notice-card');
+  append(aside, node('h2', '', '这个页面能看什么'), node('p', '', module.lead), node('p', '', '点击“查看详情”可看到字段示例。演示版没有保存、提交或审批功能，正式业务请在受控 ERP 环境中进行。'));
+  const home = node('a', 'ghost-button', '返回工作台'); home.href = '#/home'; append(aside, home);
+  append(grid, panel, aside); append(fragment, grid);
+  return fragment;
 }
 function render() {
   const { moduleKey, tabKey } = route();
   if (moduleKey !== 'home') expanded.add(moduleKey);
   renderNav(moduleKey, tabKey);
-  const title = moduleKey === 'home' ? '工作台' : modules[moduleKey].label;
+  const title = moduleKey === 'home' ? '工作台' : `${modules[moduleKey].label} / ${modules[moduleKey].tabs.find((tab) => tab.key === tabKey).label}`;
   breadcrumb.replaceChildren(document.createTextNode('工贸 ERP '), node('span', '', '/'), document.createTextNode(title));
   main.replaceChildren(moduleKey === 'home' ? homeView() : moduleView(moduleKey, tabKey));
   document.title = `${title} · 工贸 ERP 界面演示`;
