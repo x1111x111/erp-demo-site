@@ -4,55 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data:; script-src 'self'; style-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
-    <meta name="description" content="工贸 ERP 独立界面演示。全部内容为虚构样例，不连接业务系统。" />
+    <meta name="description" content="工贸 ERP 静态界面演示入口。无密码验证，不连接真实 ERP。" />
     <meta name="theme-color" content="#102b3b" />
-    <title>工贸 ERP · 界面演示</title>
+    <title>进入演示 · 工贸 ERP</title>
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./app.js" defer></script>
   </head>
-  <body>
-    <a class="skip-link" href="#main-content">跳转到主内容</a>
-    <div class="site-shell">
-      <aside class="sidebar" id="sidebar" aria-label="业务导航">
-        <a class="brand" href="#/home" aria-label="工贸 ERP 演示工作台">
+  <body class="entry-page">
+    <a class="skip-link" href="#entry-main">跳转到演示入口</a>
+    <main class="entry-layout" id="entry-main">
+      <section class="entry-story" aria-labelledby="story-title">
+        <div class="entry-story-top">
           <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span><strong>工贸 ERP</strong><small>业务协同平台 · 界面演示</small></span>
-        </a>
-        <div class="sidebar-inner">
-          <p class="nav-caption">业务导航</p>
-          <nav id="nav" aria-label="模块导航"></nav>
+          <span class="entry-story-brand"><strong>工贸 ERP</strong><small>业务协同平台</small></span>
         </div>
-        <div class="sidebar-note">
-          <span class="demo-light" aria-hidden="true"></span><strong>独立演示版</strong>
-          <p>只展示虚构数据；不会访问正式 ERP，也不会保存业务操作。</p>
+        <div class="entry-story-body">
+          <p class="entry-kicker">工贸一体企业 · 界面演示</p>
+          <h1 id="story-title">让采购、生产与交付接成一条线。</h1>
+          <p>从一张销售订单出发，了解物料、工单、库存和财务如何在同一套业务系统里衔接。</p>
+          <ol class="entry-flow" aria-label="演示业务路径">
+            <li><span>销售接单</span><small>记录客户需求与交期</small></li>
+            <li><span>采购备料</span><small>跟踪物料与供应商</small></li>
+            <li><span>生产执行</span><small>查看 BOM 与工单</small></li>
+            <li><span>仓储交付</span><small>核对库存与出库</small></li>
+          </ol>
         </div>
-      </aside>
-
-      <div class="main-column">
-        <header class="topbar">
-          <button class="mobile-menu" id="mobile-menu" type="button" aria-label="打开业务导航" aria-controls="sidebar" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
-          <div class="breadcrumb" id="breadcrumb" aria-label="当前位置">工贸 ERP <span>/</span> 工作台</div>
-          <div class="topbar-right">
-            <span class="topbar-demo">仅供界面体验</span>
-            <span class="avatar" aria-label="演示用户">演</span>
+        <p class="entry-story-foot">独立静态版本 · 所有业务数据均为虚构</p>
+      </section>
+      <section class="entry-access" aria-labelledby="entry-title">
+        <div class="entry-access-inner">
+          <span class="entry-access-mark">工贸 ERP <span>演示环境</span></span>
+          <p class="entry-access-kicker">欢迎查看</p>
+          <h2 id="entry-title">进入界面演示</h2>
+          <p class="entry-access-lead">浏览工作台、进销存、生产、财务与报表页面，查看虚构的业务样例。</p>
+          <div class="entry-identity" aria-label="演示身份">
+            <span class="entry-identity-avatar" aria-hidden="true">演</span>
+            <div><strong>演示访客</strong><small>只读浏览 · 无需账号和密码</small></div>
           </div>
-        </header>
-        <main id="main-content" tabindex="-1"></main>
-        <footer class="site-footer">工贸 ERP · 独立界面演示版　|　全部数据与公司名称均为虚构</footer>
-      </div>
-    </div>
-    <button class="nav-backdrop" id="nav-backdrop" type="button" aria-label="关闭业务导航" hidden></button>
-    <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="dialog-title">
-      <div class="dialog-head">
-        <div><span class="dialog-eyebrow">样例详情</span><h2 id="dialog-title">业务单据</h2></div>
-        <button id="close-dialog" type="button" class="icon-close" aria-label="关闭详情">×</button>
-      </div>
-      <div id="dialog-content"></div>
-      <p class="dialog-note">此处仅供查看示例，不会提交、审批或过账。</p>
-    </dialog>
-    <div class="sr-only" id="status" role="status" aria-live="polite"></div>
+          <a class="entry-button" href="./app.html#/home">进入演示工作台 <span aria-hidden="true">›</span></a>
+          <p class="entry-hint">这不是身份验证。任何拥有链接的人都能直接打开演示页面；请勿在此输入真实账号或密码。</p>
+          <div class="entry-divider"></div>
+          <p class="entry-meta">仅供产品界面体验，不连接正式 ERP，也不保存业务操作。</p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
 
