@@ -8,38 +8,39 @@
     <meta name="theme-color" content="#102b3b" />
     <title>工贸 ERP · 界面演示</title>
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="./formal-base.css" />
-    <link rel="stylesheet" href="./demo-overrides.css" />
     <script src="./app.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳转到主内容</a>
-    <div class="app-layout">
-      <aside class="app-sidebar" id="sidebar" aria-label="主导航">
+    <div class="site-shell">
+      <aside class="sidebar" id="sidebar" aria-label="业务导航">
         <a class="brand" href="#/home" aria-label="工贸 ERP 演示工作台">
-          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span><strong>工贸 ERP</strong><small>业务协同平台</small></span>
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span><strong>工贸 ERP</strong><small>业务协同平台 · 界面演示</small></span>
         </a>
-        <p class="nav-caption">业务导航</p>
-        <nav class="main-nav" id="nav" aria-label="业务导航"></nav>
-        <div class="sidebar-foot">
-          <div class="environment-badge"><span class="environment-dot" aria-hidden="true"></span> 演示环境</div>
-          <p>正式版页面结构 · 虚构样例数据 · 不提交业务操作。</p>
+        <div class="sidebar-inner">
+          <p class="nav-caption">业务导航</p>
+          <nav id="nav" aria-label="模块导航"></nav>
+        </div>
+        <div class="sidebar-note">
+          <span class="demo-light" aria-hidden="true"></span><strong>独立演示版</strong>
+          <p>只展示虚构数据；不会访问正式 ERP，也不会保存业务操作。</p>
         </div>
       </aside>
 
-      <div class="app-main">
-        <header class="app-header">
-          <button class="mobile-menu" id="mobile-menu" type="button" aria-label="打开导航" aria-controls="sidebar" aria-expanded="false">菜单</button>
-          <div class="header-location" id="breadcrumb" aria-label="当前位置">工贸 ERP <span>/</span> 工作台</div>
-          <div class="header-user">
-            <span class="tenant-label">租户 演示</span>
-            <span class="user-avatar" aria-hidden="true">演</span>
-            <span class="user-name">演示访客</span>
-            <a class="header-logout" href="./index.html">退出</a>
+      <div class="main-column">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" type="button" aria-label="打开业务导航" aria-controls="sidebar" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="breadcrumb" id="breadcrumb" aria-label="当前位置">工贸 ERP <span>/</span> 工作台</div>
+          <div class="topbar-right">
+            <span class="topbar-demo">仅供界面体验</span>
+            <span class="avatar" aria-label="演示用户">演</span>
           </div>
         </header>
         <main id="main-content" tabindex="-1"></main>
+        <footer class="site-footer">工贸 ERP · 独立界面演示版　|　全部数据与公司名称均为虚构　|　<a href="./index.html">返回演示入口</a></footer>
       </div>
     </div>
     <button class="nav-backdrop" id="nav-backdrop" type="button" aria-label="关闭业务导航" hidden></button>
