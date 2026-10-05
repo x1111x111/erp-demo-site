@@ -1,0 +1,52 @@
+/* Public read-only demo layers the official ERP base styles over fictional data. */
+#main-content { width: auto; min-width: 0; margin: 0; padding: 0; outline: none; }
+#main-content > .page-shell { max-width: 1460px; margin: 0 auto; padding: 34px 38px 72px; }
+.app-main { min-width: 0; }
+.app-header .header-logout { font-size: 13px; text-decoration: none; }
+.app-header .header-logout:hover { text-decoration: underline; }
+.app-sidebar .brand-mark span { display: block; }
+.app-sidebar .nav-caption { margin: 30px 24px 12px; }
+.app-sidebar .main-nav { align-content: start; }
+.app-sidebar .nav-submenu[hidden] { display: none; }
+.app-sidebar .nav-group-link.active { background: transparent; box-shadow: none; }
+.formal-badge { display: inline-flex; align-items: center; padding: 5px 9px; border: 1px solid #e8ca9f; border-radius: 4px; color: #8d591d; background: #fff8e9; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.formal-badge.muted-badge { border-color: #b7dad7; color: #087d79; background: #edf6f5; }
+.demo-readonly-note { margin: 0 0 16px; padding: 12px 15px; border: 1px solid #e8cfa4; border-radius: 5px; color: #855b27; background: #fff9ec; font-size: 13px; line-height: 1.6; }
+.demo-surface { padding-bottom: 12px; }
+.demo-panel-head { padding: 18px 20px; border-bottom: 1px solid var(--line); font-size: 15px; color: #303133; }
+.demo-panel-description { margin: 22px 22px 16px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.demo-section-tabs { display: flex; flex-wrap: wrap; gap: 5px; width: fit-content; max-width: calc(100% - 44px); margin: 18px 22px 8px; padding: 4px; border-radius: 7px; background: #edf3f4; }
+.demo-section-tab { display: inline-flex; align-items: center; min-height: 40px; padding: 0 14px; border-radius: 5px; color: #617783; font-size: 13px; text-decoration: none; }
+.demo-section-tab:hover, .demo-section-tab.selected { color: #0d5b59; background: white; }
+.demo-section-tab.selected { box-shadow: 0 1px 3px #c5d2d6; font-weight: 700; }
+.demo-table-toolbar { display: flex; align-items: end; justify-content: flex-end; gap: 10px; padding: 0 22px 18px; }
+.demo-search-label { display: grid; gap: 5px; width: min(250px, 100%); color: var(--muted); font-size: 12px; }
+.demo-search-label input { width: 100%; min-height: 40px; padding: 7px 10px; border: 1px solid #dcdfe6; border-radius: 4px; background: white; color: #303133; font-size: 13px; }
+.demo-refresh { min-height: 40px; padding: 0 17px; border: 1px solid #dcdfe6; border-radius: 4px; color: #606266; background: white; font-size: 13px; }
+.demo-refresh:hover { border-color: #83bdb9; color: #087d79; }
+.demo-surface .table-scroll { overflow-x: auto; border-top: 1px solid #ebeef5; }
+.demo-surface table { width: 100%; min-width: 680px; border-collapse: collapse; background: white; text-align: left; }
+.demo-surface th { padding: 13px 12px; border-bottom: 1px solid #ebeef5; color: #909399; background: white; font-size: 13px; font-weight: 600; }
+.demo-surface td { padding: 13px 12px; border-bottom: 1px solid #ebeef5; color: #606266; font-size: 13px; }
+.demo-surface tbody tr:hover { background: #f5f7fa; }
+.demo-surface .table-footer { margin: 12px 22px 0; color: var(--muted); }
+.demo-surface .text-button { color: #087d79; }
+.demo-surface .status-tag { min-width: 0; padding: 3px 7px; border: 1px solid #b7dad7; border-radius: 4px; background: #edf6f5; font-weight: 500; }
+.demo-surface .status-tag.pending { border-color: #e8cfa4; background: #fff9ec; }
+.demo-surface .status-tag.neutral { border-color: #dce5e8; background: #f5f7fa; }
+.page-shell .metric-grid { margin-bottom: 20px; }
+.nav-backdrop:not([hidden]) { display: none; }
+@media (max-width: 760px) {
+  #main-content > .page-shell { padding: 25px 17px 52px; }
+  .nav-backdrop:not([hidden]) { display: block; position: fixed; inset: 0; z-index: 9; border: 0; background: #102b3b80; }
+  .app-sidebar { z-index: 10; }
+  .mobile-menu { padding: 0; }
+  .demo-table-toolbar { align-items: stretch; flex-wrap: wrap; padding: 0 17px 17px; }
+  .demo-search-label { flex: 1; min-width: 170px; }
+  .demo-section-tabs { max-width: calc(100% - 34px); margin: 16px 17px 8px; }
+  .demo-panel-description { margin: 16px 17px; }
+}
+@media (min-width: 761px) and (max-width: 1050px) {
+  #main-content > .page-shell { padding: 28px 24px 60px; }
+}
+
